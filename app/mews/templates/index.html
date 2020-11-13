@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='skeleton.css')}}"
+    />
+    <title>Meower</title>
+  </head>
+  <body>
+    <h1 class="title">Meower 🐈</h1>
+    <div class="form">
+      <form action="" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required />
+        <label for="content">Content</label>
+        <textarea
+          name="content"
+          id="content"
+          cols="30"
+          rows="5"
+          required
+        ></textarea>
+        <br />
+        <input type="submit" class="button-primary" value="Send Meow 🐈" />
+      </form>
+    </div>
+    <div class="loading">
+      <img src="{{url_for('static',filename='loading.webp')}}" alt="" />
+    </div>
+    <script src="{{url_for('static',filename='index.js')}}"></script>
+  </body>
+</html>
