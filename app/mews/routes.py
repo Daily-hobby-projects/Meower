@@ -17,7 +17,9 @@ def create_new():
 
     new_mew.create()
 
-    return make_response(jsonify({"message":"Created"}))
+    mew=MewSchema().dump(new_mew)
+
+    return make_response(jsonify({"message":"Created","mew":mew}))
 
 
 @app.route('/mews',methods=['GET'])

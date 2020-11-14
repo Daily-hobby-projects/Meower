@@ -59,7 +59,18 @@ form.addEventListener('submit',(event)=>{
         form.reset();
 
         
+
+        
     })
+
+    let html=`
+                <div class="mew">
+                <h4>${form_data.get('name')}</h4>
+                <p>${form_data.get('content')}</p>
+                </div>
+                <br>
+                `
+            mew_section.appendChild+=html;
     event.preventDefault();
 })}
 
