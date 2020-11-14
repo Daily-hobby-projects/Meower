@@ -4,14 +4,14 @@ from .models import Mew,MewSchema
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    mews=Mew.query.order_by(Mew.id.desc()).all()
+    context={'mews':mews}
+    return render_template('index.html',**context)
 
 
 @app.route('/mews',methods=['POST'])
 def create_new():
     data=request.get_json()
-
-    print(f"\n\n{data}")
 
     new_mew=Mew(name=data.get('name'),content=data.get('content'))
 

@@ -1,13 +1,31 @@
 const form=document.querySelector('form');
 const loading_spinner=document.querySelector('.loading');
-const API_URL='/mews'
+const API_URL='/mews';
+const mew_section=document.querySelector('.mews');
+const submitButton=document.querySelector('.button-primary');
 
 
-loading_spinner.style.display='';
+window.onload=function(){listAllMews();}
 
-document.onload=()=>{
-    listAllMews();
-}
+function listAllMews(){
+    fetch(API_URL)
+    .then(response=>response.json())
+    .then(response=>{
+        for(i of response.mews){
+            let html=`
+                <div class="mew">
+                <h4>${i.name}</h4>
+                <p>${i.content}</p>
+                </div>
+                <br>
+                `
+            mew_section.innerHTML+=html;
+        }
+        console.log(response);
+})
+
+
+
 
 form.addEventListener('submit',(event)=>{
     let form_data=new FormData(form);
@@ -39,16 +57,16 @@ form.addEventListener('submit',(event)=>{
         loading_spinner.style.display="none";
 
         form.reset();
-    })
 
+        
+    })
     event.preventDefault();
+})}
+
+
+submitButton.addEventListener('click',function(){
+    listAllMews();
 })
 
 
-function listAllMews(){
-    fetch(API_URI)
-    .then(response=>response.json())
-    .then(mews=>{
-        console.log(mews);
-    })
-}
+

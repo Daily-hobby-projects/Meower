@@ -8,3 +8,18 @@
     text-align: center;
 
 }
+
+.mews{
+    width: 40%;
+    margin: auto;
+}
+
+.mew{
+    border: 1px solid lightgray;
+    padding: 12px;
+    color: dodgerblue;
+}
+
+.loading{
+    display: none;
+}
